@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evernight Vista 官方网站</title>
+    <!-- 设置网页标题图标（Favicon） -->
+    <link rel="icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png?raw=true" type="image/png" sizes="32x32">
+    <link rel="shortcut icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png?raw=true" type="image/png">
     <!-- 引入Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入Font Awesome图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- 自定义Tailwind配置 -->
+
+    <!-- 自定义Tailwind配置 - 添加暗色模式支持 -->
     <script>
         tailwind.config = {
+            darkMode: 'class', // 使用class模式来控制暗色主题
             theme: {
                 extend: {
                     colors: {
                         primary: '#165DFF',
                         secondary: '#6B7280',
                         accent: '#34D399',
+                        dark: {
+                            bg: '#121212',
+                            card: '#1E1E1E',
+                            text: '#E0E0E0',
+                            lightText: '#9E9E9E'
+                        }
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -26,7 +36,7 @@
             }
         }
     </script>
-    
+
     <style type="text/tailwindcss">
         @layer utilities {
             .content-auto {
@@ -36,45 +46,78 @@
                 @apply py-20 px-4 md:px-8 lg:px-16;
             }
             .section-title {
-                @apply text-3xl md:text-4xl font-bold mb-8 text-gray-800;
+                @apply text-3xl md:text-4xl font-bold mb-8 text-gray-800 dark:text-white;
             }
             .nav-link {
-                @apply px-4 py-2 rounded-md hover:bg-primary/10 transition-colors duration-300;
+                @apply px-4 py-2 rounded-md hover:bg-primary/10 transition-colors duration-300 dark:hover:bg-primary/20;
             }
             .nav-link-active {
-                @apply bg-primary/10 text-primary font-medium;
+                @apply bg-primary/10 text-primary font-medium dark:bg-primary/20;
             }
+            /* 可点击链接样式 */
+            .link-hover {
+                @apply text-primary hover:underline transition-colors duration-300;
+            }
+            /* 优势项卡片样式 */
+            .feature-card {
+                @apply bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:bg-dark-card dark:border-gray-700 dark:text-dark-text;
+            }
+        }
+
+        /* 全局暗色模式样式 */
+        .dark {
+            background-color: theme('colors.dark.bg');
+            color: theme('colors.dark.text');
+        }
+
+        /* 平滑过渡 */
+        html {
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
     </style>
 </head>
-<body class="font-sans text-gray-700 bg-gray-50">
+<body class="font-sans text-gray-700 bg-gray-50 dark:bg-dark-bg dark:text-dark-text">
     <!-- 导航栏 -->
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 dark:bg-dark-card dark:shadow-gray-800">
         <div class="container mx-auto px-4 md:px-8 lg:px-16">
             <nav class="flex items-center justify-between h-16">
-                <!-- Logo -->
+                <!-- Logo - 替换为新的指定图片 -->
                 <div class="flex items-center">
-                    <a href="#home" class="text-primary font-bold text-xl">MyWebsite</a>
+                    <a href="#home" class="flex items-center">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/fedora_whitelogo_med.png?raw=true"
+                             alt="Evernight Vista Logo"
+                             class="h-10 w-auto">
+                    </a>
                 </div>
-                
+
                 <!-- 桌面端导航 -->
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="#home" class="nav-link" id="nav-home">首页</a>
                     <a href="#download" class="nav-link" id="nav-download">下载</a>
                     <a href="#support" class="nav-link" id="nav-support">支持</a>
+                    <!-- 主题切换按钮 -->
+                    <button id="theme-toggle" class="nav-link flex items-center gap-2">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline-block"></i>
+                        <span class="hidden sm:inline">主题</span>
+                    </button>
                 </div>
-                
-                <!-- 移动端菜单按钮 -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary">
+
+                <!-- 移动端菜单按钮和主题切换 -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="mobile-theme-toggle" class="text-gray-500 hover:text-primary dark:text-dark-lightText dark:hover:text-primary">
+                        <i class="fas fa-moon dark:hidden text-xl"></i>
+                        <i class="fas fa-sun hidden dark:inline-block text-xl"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary dark:text-dark-lightText dark:hover:text-primary">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </nav>
-            
+
             <!-- 移动端导航菜单 -->
-            <div id="mobile-menu" class="md:hidden hidden pb-4">
-                <div class="flex flex-col space-y-2">
+            <div id="mobile-menu" class="md:hidden hidden pb-4 dark:bg-dark-card">
+                <div class="flex flex-col space-y-2 px-4">
                     <a href="#home" class="nav-link" id="mobile-nav-home">首页</a>
                     <a href="#download" class="nav-link" id="mobile-nav-download">下载</a>
                     <a href="#support" class="nav-link" id="mobile-nav-support">支持</a>
@@ -86,206 +129,125 @@
     <!-- 主要内容 -->
     <main class="pt-16">
         <!-- 首页板块 -->
-        <section id="home" class="bg-gradient-to-br from-primary/5 to-primary/10 section-padding">
+        <section id="home" class="bg-gradient-to-br from-primary/5 to-primary/10 section-padding dark:from-primary/10 dark:to-dark-bg">
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row items-center gap-10">
                     <div class="md:w-1/2">
                         <h1 class="section-title">Evernight Vista 操作系统</h1>
-                        <p class="text-lg text-gray-600 mb-8">
-                            基于Fedora Linux，以《崩坏：星穹铁道》为主题的操作系统
+                        <p class="text-lg text-gray-600 mb-8 dark:text-dark-lightText">
+                            开箱即用的Fedora系发行版，以《崩坏：星穹铁道》长夜月为主题的操作系统
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#download" class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-300">
                                 立即下载 <i class="fas fa-download ml-2"></i>
                             </a>
-                            <a href="#support" class="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/5 transition-colors duration-300">
+                            <a href="#support" class="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/5 transition-colors duration-300 dark:hover:bg-primary/10">
                                 获取支持 <i class="fas fa-headset ml-2"></i>
                             </a>
                         </div>
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://picsum.photos/800/500" alt="产品展示" class="rounded-lg shadow-lg w-full h-auto">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/Evernight%20Vista%2043-2026-01-01-10-27-35.png?raw=true"
+                             alt="Evernight Vista 产品展示"
+                             class="rounded-lg shadow-lg w-full h-auto dark:shadow-gray-800">
+                    </div>
+                </div>
+
+                <!-- 为什么选择Evernight Vista 板块 -->
+                <div class="mt-20">
+                    <h2 class="section-title text-center">为什么选择Evernight Vista 操作系统？</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
+                        <!-- 开箱即用 -->
+                        <div class="feature-card text-center">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
+                                <i class="fas fa-box-open text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 dark:text-white">开箱即用</h3>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText">一旦系统安装完成,即是原生中文、开箱即用的状态，已为您配置好了美观的图形桌面环境、国内镜像源，中文输入法, GRUB主题等等，更加符合国人的使用环境。</p>
+                        </div>
+                        <!-- 强劲性能 -->
+                        <div class="feature-card text-center">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
+                                <i class="fas fa-bolt text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 dark:text-white">强劲性能</h3>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText">Evernight Vista 操作系统使用基于CachyOS内核，拥有非凡性能。</p>
+                        </div>
+                        <!-- 安装简单 -->
+                        <div class="feature-card text-center">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
+                                <i class="fas fa-download text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 dark:text-white">安装简单</h3>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText">经典Anaconda图形化安装，只需回答几个问题，就可以完成安装。</p>
+                        </div>
+                        <!-- 强大安全 -->
+                        <div class="feature-card text-center">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
+                                <i class="fas fa-shield-halved text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 dark:text-white">强大安全</h3>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText">Evernight Vista支持安全启动和开箱即用的SELinux。</p>
+                        </div>
+                        <!-- 生态丰富 -->
+                        <div class="feature-card text-center">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
+                                <i class="fas fa-cubes text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg mb-2 dark:text-white">生态丰富</h3>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText">兼容Fedora软件源，支持如意玲珑。微信、qq等国产软件轻松安装。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 下载板块 -->
-        <section id="download" class="bg-white section-padding">
+        <!-- 下载中心板块 - 清空原有内容，仅保留标题和指定超链接 -->
+        <section id="download" class="bg-white section-padding dark:bg-dark-bg">
             <div class="container mx-auto">
                 <h2 class="section-title text-center">下载中心</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-                    选择适合您设备的版本进行下载，所有版本均经过严格测试，安全可靠。
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Windows版本 -->
-                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                        <div class="text-center mb-4">
-                            <i class="fab fa-windows text-5xl text-blue-600"></i>
-                            <h3 class="text-xl font-semibold mt-4">Windows 版本</h3>
-                        </div>
-                        <p class="text-gray-600 text-center mb-6">支持 Windows 10/11 64位系统</p>
-                        <div class="text-center">
-                            <a href="#" class="inline-block bg-primary text-white px-5 py-2 rounded-md hover:bg-primary/90 transition-colors duration-300">
-                                下载 v2.1.0 <i class="fas fa-download ml-1"></i>
-                            </a>
-                            <p class="text-xs text-gray-500 mt-2">更新时间：2026-01-01</p>
-                        </div>
-                    </div>
-                    
-                    <!-- macOS版本 -->
-                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                        <div class="text-center mb-4">
-                            <i class="fab fa-apple text-5xl text-gray-800"></i>
-                            <h3 class="text-xl font-semibold mt-4">macOS 版本</h3>
-                        </div>
-                        <p class="text-gray-600 text-center mb-6">支持 macOS 12.0 及以上版本</p>
-                        <div class="text-center">
-                            <a href="#" class="inline-block bg-primary text-white px-5 py-2 rounded-md hover:bg-primary/90 transition-colors duration-300">
-                                下载 v2.1.0 <i class="fas fa-download ml-1"></i>
-                            </a>
-                            <p class="text-xs text-gray-500 mt-2">更新时间：2026-01-01</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 移动端版本 -->
-                    <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-mobile-alt text-5xl text-green-500"></i>
-                            <h3 class="text-xl font-semibold mt-4">移动版本</h3>
-                        </div>
-                        <p class="text-gray-600 text-center mb-6">支持 iOS 和 Android 系统</p>
-                        <div class="text-center">
-                            <a href="#" class="inline-block bg-primary text-white px-5 py-2 rounded-md hover:bg-primary/90 transition-colors duration-300">
-                                获取二维码 <i class="fas fa-qrcode ml-1"></i>
-                            </a>
-                            <p class="text-xs text-gray-500 mt-2">扫码即可下载</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 bg-gray-50 border border-gray-200 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4">更新日志</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="bg-accent/20 text-accent rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">✓</span>
-                            <span>v2.1.0 - 修复了已知的兼容性问题，提升了运行稳定性</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-accent/20 text-accent rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">✓</span>
-                            <span>v2.0.0 - 新增多项实用功能，优化了用户界面</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-accent/20 text-accent rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">✓</span>
-                            <span>v1.9.0 - 优化了性能，减少了内存占用</span>
-                        </li>
-                    </ul>
+                <div class="text-center mt-10">
+                    <a href="https://www.123865.com/s/2HYrVv-zkpFd" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-md hover:bg-primary/90 transition-colors duration-300 text-lg">
+                        点击前往下载页面 <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                    <p class="text-gray-500 mt-4 dark:text-dark-lightText">Honor Edition适用于MagicBook Pro 14，提供了ACPI修复支持</p>
                 </div>
             </div>
         </section>
 
-        <!-- 支持板块 -->
-        <section id="support" class="bg-gray-50 section-padding">
+        <!-- 支持板块 - 移除常见问题，只保留联系我们 -->
+        <section id="support" class="bg-gray-50 section-padding dark:bg-dark-bg">
             <div class="container mx-auto">
                 <h2 class="section-title text-center">技术支持</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto dark:text-dark-lightText">
                     我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。
                 </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <!-- 常见问题 -->
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h3 class="text-xl font-semibold mb-4 flex items-center">
-                            <i class="fas fa-question-circle text-primary mr-2"></i> 常见问题
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="border-b border-gray-100 pb-4">
-                                <button class="faq-toggle w-full text-left font-medium flex justify-between items-center">
-                                    <span>如何安装软件？</span>
-                                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-300"></i>
-                                </button>
-                                <div class="faq-content hidden mt-2 text-gray-600">
-                                    <p>下载对应版本的安装包后，双击运行安装程序，按照提示步骤完成安装即可。Windows用户需要注意以管理员身份运行，macOS用户需要允许来自未知来源的应用。</p>
-                                </div>
-                            </div>
-                            <div class="border-b border-gray-100 pb-4">
-                                <button class="faq-toggle w-full text-left font-medium flex justify-between items-center">
-                                    <span>软件运行卡顿怎么办？</span>
-                                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-300"></i>
-                                </button>
-                                <div class="faq-content hidden mt-2 text-gray-600">
-                                    <p>建议关闭其他占用资源较多的程序，更新显卡驱动，并确保您的设备满足最低系统要求。如果问题依然存在，可以尝试清理软件缓存或重新安装。</p>
-                                </div>
-                            </div>
-                            <div class="border-b border-gray-100 pb-4">
-                                <button class="faq-toggle w-full text-left font-medium flex justify-between items-center">
-                                    <span>如何获取激活码？</span>
-                                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-300"></i>
-                                </button>
-                                <div class="faq-content hidden mt-2 text-gray-600">
-                                    <p>购买软件后，激活码会发送到您的邮箱。如果未收到，请检查垃圾邮件箱，或联系客服提供购买凭证进行查询。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 联系我们 -->
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+
+                <!-- 移除常见问题后，调整布局为居中展示联系我们 -->
+                <div class="max-w-2xl mx-auto mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-6 dark:bg-dark-card dark:shadow-gray-800">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center dark:text-white">
                             <i class="fas fa-headset text-primary mr-2"></i> 联系我们
                         </h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-primary/20">
                                     <i class="fas fa-envelope text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">B站支持</h4>
-                                    <p class="text-gray-600">https://space.bilibili.com/515586861</p>
+                                    <h4 class="font-medium mb-1 dark:text-white">B站支持</h4>
+                                    <a href="https://space.bilibili.com/515586861" target="_blank" class="link-hover">Evernight Vista 开发者官方账号</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-primary/20">
                                     <i class="fas fa-phone text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">邮箱支持</h4>
-                                    <p class="text-gray-600">13278297951@sina.cn</p>
+                                    <h4 class="font-medium mb-1 dark:text-white">邮箱支持</h4>
+                                    <a href="mailto:13278297951@sina.cn" class="link-hover">13278297951@sina.cn</a>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
-                                    <i class="fas fa-comments text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium mb-1">在线客服</h4>
-                                    <p class="text-gray-600">点击右下角图标即可开始聊天</p>
-                                    <p class="text-sm text-gray-500 mt-1">7x24小时在线</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 反馈表单 -->
-                        <div class="mt-8">
-                            <h4 class="font-medium mb-3">提交反馈</h4>
-                            <form class="space-y-4">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
-                                    <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入您的姓名">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
-                                    <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入您的邮箱">
-                                </div>
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">问题描述</label>
-                                    <textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请详细描述您遇到的问题"></textarea>
-                                </div>
-                                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors duration-300">
-                                    提交 <i class="fas fa-paper-plane ml-1"></i>
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -293,52 +255,60 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-12">
+    <!-- 页脚 - 移除文档板块+更多板块的系统截图 -->
+    <footer class="bg-gray-800 text-white py-12 dark:bg-dark-card">
         <div class="container mx-auto px-4 md:px-8 lg:px-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">MyWebsite</h3>
-                    <p class="text-gray-400 mb-4">
-                        提供高品质的软件产品和服务，让您的工作更高效，生活更便捷。
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-weixin text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-weibo text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
-                        <li><a href="#download" class="text-gray-400 hover:text-white transition-colors">下载中心</a></li>
-                        <li><a href="#support" class="text-gray-400 hover:text-white transition-colors">技术支持</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">隐私政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">用户协议</a></li>
+            <!-- 两列布局：社区、更多 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mb-8">
+                <!-- 社区列 -->
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-white">社区</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" target="_blank" class="flex items-center hover:text-white transition-colors">
+                                QQ群(758777563)
+                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://space.bilibili.com/515586861" target="_blank" class="flex items-center hover:text-white transition-colors">
+                                Bilibili
+                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <span>小红书(5151757600)</span>
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">订阅更新</h3>
-                    <p class="text-gray-400 mb-4">
-                        订阅我们的通讯，及时获取产品更新和优惠信息。
-                    </p>
-                    <div class="flex">
-                        <input type="email" class="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-white placeholder-gray-400" placeholder="您的邮箱地址">
-                        <button class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary/90 transition-colors duration-300">
-                            订阅
-                        </button>
-                    </div>
+
+                <!-- 更多列（移除系统截图） -->
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold mb-4 text-white">更多</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <a href="https://github.com/EvernightFedora/evernight-vista" target="_blank" class="flex items-center hover:text-white transition-colors">
+                                GitHub
+                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-                <p>© 2026 长夜月玩Fedora 保留所有权利。</p>
+
+            <!-- Logo和版权信息 -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png?raw=true"
+                             alt="Evernight Vista Logo"
+                             class="h-8 w-auto mr-2">
+                        <span class="text-lg font-semibold">Evernight Vista</span>
+                    </div>
+                    <p class="text-gray-400 text-sm text-center md:text-left">
+                        © 2026 长夜月玩Fedora 保留所有权利。独立项目，与Fedora、Red Hat或米哈游无关
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
@@ -350,14 +320,61 @@
 
     <!-- JavaScript -->
     <script>
+        // 主题切换功能
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // 检查本地存储的主题偏好
+        const storedTheme = localStorage.getItem('theme');
+        // 检测系统主题偏好
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+        // 应用主题
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+            // 保存到本地存储
+            localStorage.setItem('theme', theme);
+        };
+
+        // 初始化主题
+        if (storedTheme) {
+            // 使用用户手动设置的主题
+            applyTheme(storedTheme);
+        } else {
+            // 跟随系统主题
+            applyTheme(systemTheme);
+        }
+
+        // 监听系统主题变化
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            // 只有在用户没有手动设置主题时，才跟随系统变化
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // 主题切换按钮点击事件
+        const toggleTheme = () => {
+            const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            applyTheme(currentTheme);
+        };
+
+        themeToggle?.addEventListener('click', toggleTheme);
+        mobileThemeToggle?.addEventListener('click', toggleTheme);
+
         // 移动端菜单切换
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // 导航栏激活状态
         const sections = document.querySelectorAll('section');
         const navLinks = {
@@ -368,18 +385,18 @@
             mobileDownload: document.getElementById('mobile-nav-download'),
             mobileSupport: document.getElementById('mobile-nav-support')
         };
-        
+
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // 关闭移动端菜单
                 mobileMenu.classList.add('hidden');
-                
+
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -388,23 +405,23 @@
                 }
             });
         });
-        
+
         // 监听滚动事件
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            
+
             // 更新导航激活状态
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionHeight = section.offsetHeight;
                 const sectionId = section.getAttribute('id');
-                
+
                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     // 重置所有导航链接
                     Object.values(navLinks).forEach(link => {
                         if (link) link.classList.remove('nav-link-active');
                     });
-                    
+
                     // 激活当前导航链接
                     if (navLinks[sectionId]) navLinks[sectionId].classList.add('nav-link-active');
                     if (navLinks[`mobile${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`]) {
@@ -412,7 +429,7 @@
                     }
                 }
             });
-            
+
             // 显示/隐藏返回顶部按钮
             const backToTopButton = document.getElementById('back-to-top');
             if (scrollPosition > 500) {
@@ -423,7 +440,7 @@
                 backToTopButton.classList.remove('opacity-100', 'visible');
             }
         });
-        
+
         // 返回顶部按钮点击事件
         document.getElementById('back-to-top').addEventListener('click', () => {
             window.scrollTo({
@@ -431,35 +448,7 @@
                 behavior: 'smooth'
             });
         });
-        
-        // FAQ 折叠面板
-        document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const content = toggle.nextElementSibling;
-                const icon = toggle.querySelector('i');
-                
-                // 切换内容显示/隐藏
-                content.classList.toggle('hidden');
-                // 切换图标旋转
-                icon.classList.toggle('rotate-180');
-                
-                // 关闭其他FAQ项
-                document.querySelectorAll('.faq-toggle').forEach(otherToggle => {
-                    if (otherToggle !== toggle) {
-                        otherToggle.nextElementSibling.classList.add('hidden');
-                        otherToggle.querySelector('i').classList.remove('rotate-180');
-                    }
-                });
-            });
-        });
-        
-        // 表单提交处理
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('感谢您的反馈！我们会尽快回复您。');
-            e.target.reset();
-        });
-        
+
         // 初始化 - 触发一次滚动事件以设置初始状态
         window.dispatchEvent(new Event('scroll'));
     </script>
