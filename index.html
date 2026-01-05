@@ -501,8 +501,35 @@
             }
         };
 
-        // 当前语言
-        let currentLang = localStorage.getItem('language') || 'zh-CN';
+        // ========== 检测系统语言 ==========
+        // 获取系统语言（兼容不同浏览器的写法）
+        function getSystemLanguage() {
+            // navigator.language 返回浏览器/系统的首选语言，例如 "zh-CN", "en-US", "ja-JP"
+            const systemLang = navigator.language || navigator.userLanguage;
+
+            // 语言映射：处理不同的语言代码格式（如 "zh", "zh-CN", "zh-TW" 都映射到 "zh-CN"）
+            const langMap = {
+                'zh': 'zh-CN',
+                'zh-CN': 'zh-CN',
+                'zh-TW': 'zh-CN',
+                'zh-HK': 'zh-CN',
+                'en': 'en-US',
+                'en-US': 'en-US',
+                'en-GB': 'en-US',
+                'en-CA': 'en-US',
+                'ja': 'ja-JP',
+                'ja-JP': 'ja-JP'
+            };
+
+            // 获取映射后的语言代码，如果没有匹配的则返回默认值 zh-CN
+            return langMap[systemLang] || langMap[systemLang.split('-')[0]] || 'zh-CN';
+        }
+
+        // 确定初始语言优先级：
+        // 1. 本地存储的用户手动选择的语言（最高优先级）
+        // 2. 系统语言
+        // 3. 默认语言 zh-CN
+        let currentLang = localStorage.getItem('language') || getSystemLanguage() || 'zh-CN';
 
         // 设置页面语言
         function setLanguage(lang) {
@@ -540,8 +567,10 @@
                 }
             });
 
-            // 保存语言偏好到本地存储
-            localStorage.setItem('language', lang);
+            // 保存语言偏好到本地存储（只有用户手动切换时才保存）
+            if (arguments.length > 0) { // 确保是手动调用而不是初始化
+                localStorage.setItem('language', lang);
+            }
 
             // 关闭所有语言下拉菜单
             document.getElementById('language-dropdown-menu').classList.add('hidden');
@@ -588,7 +617,7 @@
             mobileLanguageDropdownMenu.classList.add('hidden');
         });
 
-        // 初始化语言
+        // 初始化语言（页面加载时自动设置）
         setLanguage(currentLang);
 
         // ========== 原有功能代码 ==========
