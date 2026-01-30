@@ -1,16 +1,337 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0050)https://evernightfedora.github.io/evernight-vista/ -->
+<html lang="zh-CN" data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: var(--darkreader-background-ffffff, #1d1c19) !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: var(--darkreader-background-ffffff, #1d1c19);
+}
+html, body {
+    border-color: var(--darkreader-border-4c4c4c, #827661);
+    color: var(--darkreader-text-000000, #fffddd);
+}
+a {
+    color: var(--darkreader-text-0040ff, #7c9fc1);
+}
+table {
+    border-color: var(--darkreader-border-808080, #666359);
+}
+mark {
+    color: var(--darkreader-text-000000, #fffddd);
+}
+::placeholder {
+    color: var(--darkreader-text-a9a9a9, #cdbda1);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: var(--darkreader-background-faffbd, #4b491c) !important;
+    color: var(--darkreader-text-000000, #fffddd) !important;
+}
+* {
+    scrollbar-color: var(--darkreader-background-b0b0b0, #545149) var(--darkreader-background-f1f1f1, #272622);
+}
+::selection {
+    background-color: var(--darkreader-background-0060d4, #30537a) !important;
+    color: var(--darkreader-text-ffffff, #fffddd) !important;
+}
+::-moz-selection {
+    background-color: var(--darkreader-background-0060d4, #30537a) !important;
+    color: var(--darkreader-text-ffffff, #fffddd) !important;
+}
+}</style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) sepia(50%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: var(--darkreader-background-ffffff, #1d1c19);
+   --darkreader-neutral-text: var(--darkreader-text-000000, #fffddd);
+   --darkreader-selection-background: var(--darkreader-background-0060d4, #30537a);
+   --darkreader-selection-text: var(--darkreader-text-ffffff, #fffddd);
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evernight Vista 官方网站</title>
     <!-- 设置网页标题图标（Favicon） -->
     <link rel="icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" type="image/png" sizes="32x32">
     <link rel="shortcut icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" type="image/png">
     <!-- 引入Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/saved_resource"></script><meta name="darkreader" content="1c879427f92e432b8935e8c33a2bc895"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #81682c) !important;
+    border-color: var(--darkreader-background-c59d00, #aa8f3b) !important;
+    color: var(--darkreader-text-302505, #fbeacb) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #374a49) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #273939) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #24231f) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #40311a) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #475d5c) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep {
+    background: var(--darkreader-bg--d2l-color-mica) !important;
+}
+.d2l-le-TreeAccordionItem-anchor::before {
+    background: var(--darkreader-bg--d2l-color-corundum) !important;
+}
+embed[type="application/pdf"][src="about:blank"] { filter: invert(100%) contrast(90%); }</style><style>
+html::-webkit-scrollbar {
+    /* we'll add padding as "border" in the thumb*/
+    height: 20px;
+    width: 20px;
+    background: white;
+}
+
+html::-webkit-scrollbar-track {
+    border-radius: 20px;
+    border: 7px solid white; /* FIXME why doesn't "transparent" work here?! */
+    background-color: white;
+    width: 6px !important; /* 20px scrollbar - 2 * 7px border */
+    box-sizing: content-box;
+}
+html::-webkit-scrollbar-track:hover {
+    background-color: #BFC0C2;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #3DAEE9; /* default blue breeze color */
+    border: 7px solid transparent;
+    border-radius: 20px;
+    background-clip: content-box;
+    width: 6px !important; /* 20px scrollbar - 2 * 7px border */
+    box-sizing: content-box;
+    min-height: 30px;
+}
+html::-webkit-scrollbar-thumb:window-inactive {
+   background-color: #949699; /* when window is inactive it's gray */
+}
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #93CEE9; /* hovered is a lighter blue */
+}
+
+html::-webkit-scrollbar-corner {
+    background-color: white; /* FIXME why doesn't "transparent" work here?! */
+}
+    </style><style class="darkreader darkreader--sync" media="screen"></style>
     <!-- 引入Font Awesome图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/all.min.css"><style class="darkreader darkreader--sync" media="screen"></style>
 
     <!-- 自定义Tailwind配置 - 添加暗色模式支持 -->
     <script>
@@ -87,7 +408,44 @@
             display: none;
         }
     </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.relative{position:relative}.bottom-8{bottom:2rem}.left-0{left:0px}.right-0{right:0px}.right-8{right:2rem}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}.mr-4{margin-right:1rem}.mt-10{margin-top:2.5rem}.mt-20{margin-top:5rem}.mt-4{margin-top:1rem}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-8{height:2rem}.h-auto{height:auto}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-auto{width:auto}.w-full{width:100%}.max-w-2xl{max-width:42rem}.flex-shrink-0{flex-shrink:0}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0px}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-1 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.25rem * var(--tw-space-x-reverse));margin-left:calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(22 93 255 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(22 93 255 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(22 93 255 / 0.1)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-primary\/5{--tw-gradient-from:rgb(22 93 255 / 0.05) var(--tw-gradient-from-position);--tw-gradient-to:rgb(22 93 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-primary\/10{--tw-gradient-to:rgb(22 93 255 / 0.1) var(--tw-gradient-to-position)}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-4{padding-bottom:1rem}.pt-16{padding-top:4rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-sans{font-family:Inter, system-ui, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(22 93 255 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.section-padding{padding-top:5rem;padding-bottom:5rem;padding-left:1rem;padding-right:1rem}@media (min-width: 768px){.section-padding{padding-left:2rem;padding-right:2rem}}@media (min-width: 1024px){.section-padding{padding-left:4rem;padding-right:4rem}}.section-title{margin-bottom:2rem;font-size:1.875rem;line-height:2.25rem;font-weight:700;--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.section-title:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.section-title{font-size:2.25rem;line-height:2.5rem}}.nav-link{border-radius:0.375rem;padding-left:1rem;padding-right:1rem;padding-top:0.5rem;padding-bottom:0.5rem;transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:300ms}.nav-link:hover{background-color:rgb(22 93 255 / 0.1)}.nav-link:hover:is(.dark *){background-color:rgb(22 93 255 / 0.2)}.nav-link-active{background-color:rgb(22 93 255 / 0.1);font-weight:500;--tw-text-opacity:1;color:rgb(22 93 255 / var(--tw-text-opacity, 1))}.nav-link-active:is(.dark *){background-color:rgb(22 93 255 / 0.2)}/* 下拉菜单样式 */.dropdown-menu{position:absolute;right:0px;z-index:50;margin-top:0.5rem;width:12rem;border-radius:0.375rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding-top:0.25rem;padding-bottom:0.25rem;--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dropdown-menu:is(.dark *){--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(30 30 30 / var(--tw-bg-opacity, 1))}.dropdown-item{display:block;cursor:pointer;padding-left:1rem;padding-right:1rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:0.875rem;line-height:1.25rem;--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.dropdown-item:hover{background-color:rgb(22 93 255 / 0.1)}.dropdown-item:is(.dark *){--tw-text-opacity:1;color:rgb(224 224 224 / var(--tw-text-opacity, 1))}.dropdown-item:hover:is(.dark *){background-color:rgb(22 93 255 / 0.2)}/* 可点击链接样式 */.link-hover{--tw-text-opacity:1;color:rgb(22 93 255 / var(--tw-text-opacity, 1));transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:300ms}.link-hover:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}/* 优势项卡片样式 */.feature-card{border-radius:0.5rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1));padding:1.5rem;--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:300ms}.feature-card:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.feature-card:is(.dark *){--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1));--tw-bg-opacity:1;background-color:rgb(30 30 30 / var(--tw-bg-opacity, 1));--tw-text-opacity:1;color:rgb(224 224 224 / var(--tw-text-opacity, 1))}
+
+        /* 全局暗色模式样式 */
+        .dark {
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+
+        /* 平滑过渡 */
+        html {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* 隐藏元素 */
+        .hidden {
+            display: none;
+        }
+        .hover\:bg-primary\/5:hover{background-color:rgb(22 93 255 / 0.05)}
+        .hover\:bg-primary\/90:hover{background-color:rgb(22 93 255 / 0.9)}
+        .hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(22 93 255 / var(--tw-text-opacity, 1))}
+        .hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+        .dark\:inline-block:is(.dark *){display:inline-block}
+        .dark\:hidden:is(.dark *){display:none}
+        .dark\:bg-dark-bg:is(.dark *){--tw-bg-opacity:1;background-color:rgb(18 18 18 / var(--tw-bg-opacity, 1))}
+        .dark\:bg-dark-card:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 30 30 / var(--tw-bg-opacity, 1))}
+        .dark\:bg-primary\/20:is(.dark *){background-color:rgb(22 93 255 / 0.2)}
+        .dark\:from-primary\/10:is(.dark *){--tw-gradient-from:rgb(22 93 255 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(22 93 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}
+        .dark\:to-dark-bg:is(.dark *){--tw-gradient-to:#121212 var(--tw-gradient-to-position)}
+        .dark\:text-dark-lightText:is(.dark *){--tw-text-opacity:1;color:rgb(158 158 158 / var(--tw-text-opacity, 1))}
+        .dark\:text-dark-text:is(.dark *){--tw-text-opacity:1;color:rgb(224 224 224 / var(--tw-text-opacity, 1))}
+        .dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}
+        .dark\:shadow-gray-800:is(.dark *){--tw-shadow-color:#1f2937;--tw-shadow:var(--tw-shadow-colored)}
+        .dark\:hover\:bg-primary\/10:hover:is(.dark *){background-color:rgb(22 93 255 / 0.1)}
+        .dark\:hover\:text-primary:hover:is(.dark *){--tw-text-opacity:1;color:rgb(22 93 255 / var(--tw-text-opacity, 1))}
+        @media (min-width: 640px){.sm\:inline{display:inline}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+        @media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:w-1\/2{width:50%}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:gap-8{gap:2rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:text-left{text-align:left}}
+        @media (min-width: 1024px){.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:px-16{padding-left:4rem;padding-right:4rem}}
+    </style><style class="darkreader darkreader--sync" media="screen"></style></head>
 <body class="font-sans text-gray-700 bg-gray-50 dark:bg-dark-bg dark:text-dark-text">
     <!-- 导航栏 -->
     <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 dark:bg-dark-card dark:shadow-gray-800">
@@ -95,18 +453,16 @@
             <nav class="flex items-center justify-between h-16">
                 <!-- Logo - 替换为新的指定图片 -->
                 <div class="flex items-center">
-                    <a href="#home" class="flex items-center">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/fedora_whitelogo_med.png"
-                             alt="Evernight Vista Logo"
-                             class="h-10 w-auto" id="logo-img">
+                    <a href="https://evernightfedora.github.io/evernight-vista/#home" class="flex items-center">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/fedora_whitelogo_med.png" alt="Evernight Vista Logo" class="h-10 w-auto" id="logo-img">
                     </a>
                 </div>
 
                 <!-- 桌面端导航 -->
                 <div class="hidden md:flex items-center space-x-1 relative">
-                    <a href="#home" class="nav-link" id="nav-home">首页</a>
-                    <a href="#download" class="nav-link" id="nav-download">下载</a>
-                    <a href="#support" class="nav-link" id="nav-support">支持</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#home" class="nav-link nav-link-active" id="nav-home">首页</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#download" class="nav-link" id="nav-download">下载</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#support" class="nav-link" id="nav-support">支持</a>
 
                     <!-- 语言下拉菜单 -->
                     <div class="relative">
@@ -159,9 +515,9 @@
             <!-- 移动端导航菜单 -->
             <div id="mobile-menu" class="md:hidden hidden pb-4 dark:bg-dark-card">
                 <div class="flex flex-col space-y-2 px-4">
-                    <a href="#home" class="nav-link" id="mobile-nav-home">首页</a>
-                    <a href="#download" class="nav-link" id="mobile-nav-download">下载</a>
-                    <a href="#support" class="nav-link" id="mobile-nav-support">支持</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#home" class="nav-link nav-link-active" id="mobile-nav-home">首页</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#download" class="nav-link" id="mobile-nav-download">下载</a>
+                    <a href="https://evernightfedora.github.io/evernight-vista/#support" class="nav-link" id="mobile-nav-support">支持</a>
                 </div>
             </div>
         </div>
@@ -175,22 +531,14 @@
                 <div class="flex flex-col md:flex-row items-center gap-10">
                     <div class="md:w-1/2">
                         <h1 class="section-title" id="main-title">Evernight Vista 操作系统</h1>
-                        <p class="text-lg text-gray-600 mb-8 dark:text-dark-lightText" id="main-description">
-                            开箱即用的Fedora系发行版，以《崩坏：星穹铁道》长夜月为主题的操作系统
-                        </p>
+                        <p class="text-lg text-gray-600 mb-8 dark:text-dark-lightText" id="main-description">性能最澎湃、软件生态最丰厚、开箱即用的Fedora系发行版</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="#download" class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-300" id="download-now-btn">
-                                立即下载 <i class="fas fa-download ml-2"></i>
-                            </a>
-                            <a href="#support" class="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/5 transition-colors duration-300 dark:hover:bg-primary/10" id="get-support-btn">
-                                获取支持 <i class="fas fa-headset ml-2"></i>
-                            </a>
+                            <a href="https://evernightfedora.github.io/evernight-vista/#download" class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-300" id="download-now-btn">立即下载</a>
+                            <a href="https://evernightfedora.github.io/evernight-vista/#support" class="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/5 transition-colors duration-300 dark:hover:bg-primary/10" id="get-support-btn">获取支持</a>
                         </div>
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/Evernight%20Vista%2043.1%20RC%202-2026-01-30-09-35-48.png"
-                             alt="Evernight Vista 产品展示"
-                             class="rounded-lg shadow-lg w-full h-auto dark:shadow-gray-800" id="product-img">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/Evernight Vista 43.1 RC 2-2026-01-30-09-35-48.png" alt="Evernight Vista 产品展示" class="rounded-lg shadow-lg w-full h-auto dark:shadow-gray-800" id="product-img">
                     </div>
                 </div>
 
@@ -236,7 +584,7 @@
                                 <i class="fas fa-cubes text-primary text-2xl"></i>
                             </div>
                             <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature5-title">生态丰富</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature5-desc">兼容Fedora软件源，支持如意玲珑。微信、qq等国产软件轻松安装。</p>
+                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature5-desc">兼容Fedora软件源，支持如意玲珑、星火应用商店。轻松安装相关软件！</p>
                         </div>
                     </div>
                 </div>
@@ -248,10 +596,8 @@
             <div class="container mx-auto">
                 <h2 class="section-title text-center" id="download-center-title">下载中心</h2>
                 <div class="text-center mt-10">
-                    <a href="https://sourceforge.net/projects/evernight-vista/files/latest/download" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-md hover:bg-primary/90 transition-colors duration-300 text-lg" id="go-to-download-btn">
-                        点击前往下载页面 <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                    <p class="text-gray-500 mt-4 dark:text-dark-lightText" id="honor-edition-note">Honor Edition适用于MagicBook Pro 14，提供了ACPI修复支持</p>
+                    <a href="https://sourceforge.net/projects/evernight-vista/files/latest/download" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-md hover:bg-primary/90 transition-colors duration-300 text-lg" id="go-to-download-btn">点击前往下载页面</a>
+                    <p class="text-gray-500 mt-4 dark:text-dark-lightText" id="honor-edition-note">Honor Edition适用于MagicBook Pro 14，提供了ACPI修复支持，最新版本：43.1（2026.2.16）</p>
                 </div>
             </div>
         </section>
@@ -260,16 +606,12 @@
         <section id="support" class="bg-gray-50 section-padding dark:bg-dark-bg">
             <div class="container mx-auto">
                 <h2 class="section-title text-center" id="tech-support-title">技术支持</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto dark:text-dark-lightText" id="support-description">
-                    我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。
-                </p>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto dark:text-dark-lightText" id="support-description">我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。</p>
 
                 <!-- 移除常见问题后，调整布局为居中展示联系我们 -->
                 <div class="max-w-2xl mx-auto mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-6 dark:bg-dark-card dark:shadow-gray-800">
-                        <h3 class="text-xl font-semibold mb-4 flex items-center dark:text-white" id="contact-us-title">
-                            <i class="fas fa-headset text-primary mr-2"></i> 联系我们
-                        </h3>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center dark:text-white" id="contact-us-title">联系我们</h3>
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-primary/20">
@@ -306,22 +648,13 @@
                     <h3 class="text-lg font-semibold mb-4 text-white" id="community-title">社区</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li>
-                            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" target="_blank" class="flex items-center hover:text-white transition-colors" id="qq-group-text">
-                                QQ群(758777563)
-                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
-                            </a>
+                            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" target="_blank" class="flex items-center hover:text-white transition-colors" id="qq-group-text">QQ群(758777563)</a>
                         </li>
                         <li>
-                            <a href="https://space.bilibili.com/515586861" target="_blank" class="flex items-center hover:text-white transition-colors" id="bilibili-text">
-                                B站
-                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
-                            </a>
+                            <a href="https://space.bilibili.com/515586861" target="_blank" class="flex items-center hover:text-white transition-colors" id="bilibili-text">哔哩哔哩</a>
                         </li>
                         <li>
-                            <a href="https://www.xiaohongshu.com/user/profile/66080660000000000600c063" target="_blank" class="flex items-center hover:text-white transition-colors" id="xiaohongshu-text">
-                                小红书
-                                <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
-                            </a>
+                            <a href="https://www.xiaohongshu.com/user/profile/66080660000000000600c063" target="_blank" class="flex items-center hover:text-white transition-colors" id="xiaohongshu-text">小红书</a>
                         </li>
                     </ul>
                 </div>
@@ -331,7 +664,7 @@
                     <h3 class="text-lg font-semibold mb-4 text-white" id="more-title">更多</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li>
-                            <a href="https://github.com/EvernightFedora/evernight-vista" target="_blank" class="flex items-center hover:text-white transition-colors">
+                            <a href="https://github.com/KairikiFedora/evernight-vista" target="_blank" class="flex items-center hover:text-white transition-colors">
                                 GitHub
                                 <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
                             </a>
@@ -344,21 +677,17 @@
             <div class="border-t border-gray-700 pt-8">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div class="flex items-center">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png"
-                             alt="Evernight Vista Logo"
-                             class="h-8 w-auto mr-2" id="footer-logo-img">
+                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" alt="Evernight Vista Logo" class="h-8 w-auto mr-2" id="footer-logo-img">
                         <span class="text-lg font-semibold">Evernight Vista</span>
                     </div>
-                    <p class="text-gray-400 text-sm text-center md:text-left" id="copyright-text">
-                        © 2026 长夜月玩Fedora 保留所有权利。独立项目，与Fedora、Red Hat或米哈游无关
-                    </p>
+                    <p class="text-gray-400 text-sm text-center md:text-left" id="copyright-text">© 2026 怪力熊玩Fedora 保留所有权利。基于Fedora。独立项目，与Fedora、Red Hat无关</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- 返回顶部按钮 -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-primary/90 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -378,7 +707,7 @@
                 'current-language-text': '中文',
                 'theme-text': '主题',
                 'main-title': 'Evernight Vista 操作系统',
-                'main-description': '开箱即用的Fedora系发行版，以《崩坏：星穹铁道》长夜月为主题的操作系统',
+                'main-description': '性能最澎湃、软件生态最丰厚、开箱即用的Fedora系发行版',
                 'download-now-btn': '立即下载',
                 'get-support-btn': '获取支持',
                 'why-choose-title': '为什么选择Evernight Vista 操作系统？',
@@ -391,7 +720,7 @@
                 'feature4-title': '强大安全',
                 'feature4-desc': 'Evernight Vista支持安全启动和开箱即用的SELinux。',
                 'feature5-title': '生态丰富',
-                'feature5-desc': '兼容Fedora软件源，支持如意玲珑。微信、qq等国产软件轻松安装。',
+                'feature5-desc': '兼容Fedora软件源，支持如意玲珑、星火应用商店。微信、qq等国产软件轻松安装。',
                 'download-center-title': '下载中心',
                 'go-to-download-btn': '点击前往下载页面',
                 'honor-edition-note': 'Honor Edition适用于MagicBook Pro 14，提供了ACPI修复支持',
@@ -406,7 +735,7 @@
                 'bilibili-text': 'B站',
                 'xiaohongshu-text': '小红书',
                 'more-title': '更多',
-                'copyright-text': '© 2026 长夜月玩Fedora 保留所有权利。独立项目，与Fedora、Red Hat或米哈游无关',
+                'copyright-text': '© 2026 怪力熊玩Fedora 保留所有权利。基于Fedora。独立项目，与Fedora、Red Hat无关',
                 'logo-img-alt': 'Evernight Vista Logo',
                 'product-img-alt': 'Evernight Vista 产品展示',
                 'footer-logo-img-alt': 'Evernight Vista Logo'
@@ -422,12 +751,12 @@
                 'current-language-text': 'English',
                 'theme-text': 'Theme',
                 'main-title': 'Evernight Vista Operating System',
-                'main-description': 'An out-of-the-box Fedora-based distribution themed on "Honkai: Star Rail" Evernight Vista',
+                'main-description': 'The Fedora-based distribution with the most powerful performance, the richest software ecosystem, and ready to use out of the box.',
                 'download-now-btn': 'Download Now',
                 'get-support-btn': 'Get Support',
                 'why-choose-title': 'Why Choose Evernight Vista?',
                 'feature1-title': 'Out of the Box',
-                'feature1-desc': 'Once installed, the system is natively in Chinese and ready to use immediately. It comes with a beautiful graphical desktop environment, domestic mirror sources, Chinese input method, GRUB theme, and more, making it more suitable for Chinese users.',
+                'feature1-desc': 'Once installed, the system is ready to use immediately. It comes with a beautiful graphical desktop environment, mirror sources, Chinese Japanese and Korean input method, GRUB theme, and more, making it more suitable for everyone users.',
                 'feature2-title': 'Powerful Performance',
                 'feature2-desc': 'Evernight Vista OS uses the CachyOS-based kernel for exceptional performance.',
                 'feature3-title': 'Easy Installation',
@@ -435,7 +764,7 @@
                 'feature4-title': 'Enhanced Security',
                 'feature4-desc': 'Evernight Vista supports Secure Boot and out-of-the-box SELinux.',
                 'feature5-title': 'Rich Ecosystem',
-                'feature5-desc': 'Compatible with Fedora software repositories and supports Lutris. Easily install Chinese software like WeChat and QQ.',
+                'feature5-desc': 'Compatible with Fedora software repositories and supports applications like Linyaps and Spark App Store. Chinese software such as WeChat and QQ can be easily installed.',
                 'download-center-title': 'Download Center',
                 'go-to-download-btn': 'Go to Download Page',
                 'honor-edition-note': 'Honor Edition is suitable for MagicBook Pro 14 with ACPI fix support',
@@ -450,7 +779,7 @@
                 'bilibili-text': 'Bilibili',
                 'xiaohongshu-text': 'Xiaohongshu',
                 'more-title': 'More',
-                'copyright-text': '© 2026 EvernightFedora. All rights reserved. Independent project, not affiliated with Fedora, Red Hat, or miHoYo',
+                'copyright-text': '© 2026 KairikiFedora. All rights reserved. Independent project, not affiliated with Fedora, Red Hat, or ',
                 'logo-img-alt': 'Evernight Vista Logo',
                 'product-img-alt': 'Evernight Vista Product Display',
                 'footer-logo-img-alt': 'Evernight Vista Logo'
@@ -466,12 +795,12 @@
                 'current-language-text': '日本語',
                 'theme-text': 'テーマ',
                 'main-title': 'Evernight Vista オペレーティングシステム',
-                'main-description': '「崩壊：スターレイル」の「長夜月」をテーマにした、すぐに使えるFedoraベースのディストリビューション',
+                'main-description': '最もパフォーマンスが急上昇し、ソフトウェアエコシステムが最も充実し、箱からでも使えるFedoraシリーズのディストリビューション',
                 'download-now-btn': '今すぐダウンロード',
                 'get-support-btn': 'サポートを受ける',
                 'why-choose-title': 'Evernight Vistaを選ぶ理由',
                 'feature1-title': 'すぐに使える',
-                'feature1-desc': 'システムインストール後、すぐに中国語環境で使用可能です。美しいグラフィカルデスクトップ環境、国内ミラーソース、中国語入力法、GRUBテーマなどが事前に設定されており、中国人ユーザーに最適です。',
+                'feature1-desc': 'インストールが完了すると、システムはすぐに使用可能です。美しいグラフィカルデスクトップ環境、ミラーソース、中国語・日本語・韓国語の入力方法、GRUBテーマなどが付属しており、すべてのユーザーにより適しています。',
                 'feature2-title': '高性能',
                 'feature2-desc': 'Evernight Vista OSはCachyOSカーネルをベースにしており、優れたパフォーマンスを発揮します。',
                 'feature3-title': 'インストールが簡単',
@@ -479,7 +808,7 @@
                 'feature4-title': '高度なセキュリティ',
                 'feature4-desc': 'Evernight VistaはセキュアブートとSELinuxをサポートしており、デフォルトで有効になっています。',
                 'feature5-title': '豊富なエコシステム',
-                'feature5-desc': 'FedoraソフトウェアリポジトリとLutrisをサポートし、WeChatやQQなどの中国製ソフトウェアを簡単にインストールできます。',
+                'feature5-desc': 'Fedoraのソフトウェアリポジトリと互換性があり、LinyapsやSpark App Storeなどのアプリケーションをサポートしています。WeChatやQQなどの中国のソフトウェアも簡単にインストールできます。',
                 'download-center-title': 'ダウンロードセンター',
                 'go-to-download-btn': 'ダウンロードページへ',
                 'honor-edition-note': 'Honor EditionはMagicBook Pro 14用で、ACPI修正機能を提供します',
@@ -494,7 +823,7 @@
                 'bilibili-text': 'Bilibili',
                 'xiaohongshu-text': '小紅書',
                 'more-title': 'その他',
-                'copyright-text': '© 2026 EvernightFedora. 全著作権所有。Fedora、Red Hat、miHoYoとは無関係の独立したプロジェクトです',
+                'copyright-text': '© 2026 KairikiFedora. 全著作権所有。Fedora、Red Hatとは無関係の独立したプロジェクトです',
                 'logo-img-alt': 'Evernight Vistaロゴ',
                 'product-img-alt': 'Evernight Vista製品ディスプレイ',
                 'footer-logo-img-alt': 'Evernight Vistaロゴ'
@@ -754,5 +1083,6 @@
         // 初始化 - 触发一次滚动事件以设置初始状态
         window.dispatchEvent(new Event('scroll'));
     </script>
-</body>
-</html>
+
+
+</body></html>
