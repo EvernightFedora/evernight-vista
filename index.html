@@ -1,583 +1,499 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evernight Vista 官方网站</title>
-    <link rel="icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" type="image/png" sizes="32x32">
-    <link rel="shortcut icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#72B8DC',
-                        secondary: '#6B7280',
-                        accent: '#34D399',
-                        dark: {
-                            bg: '#121212',
-                            card: '#1E1E1E',
-                            text: '#E0E0E0',
-                            lightText: '#9E9E9E'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-            .section-padding {
-                @apply py-20 px-4 md:px-8 lg:px-16;
-            }
-            .section-title {
-                @apply text-3xl md:text-4xl font-bold mb-8 text-gray-800 dark:text-white;
-            }
-            .nav-link {
-                @apply px-4 py-2 rounded-md hover:bg-primary/10 transition-colors duration-300 dark:hover:bg-primary/20;
-            }
-            .nav-link-active {
-                @apply bg-primary/10 text-primary font-medium dark:bg-primary/20;
-            }
-            .dropdown-menu {
-                @apply absolute right-0 mt-2 w-48 bg-white dark:bg-dark-card rounded-md shadow-lg py-1 z-50 border border-gray-200 dark:border-gray-700;
-            }
-            .dropdown-item {
-                @apply block px-4 py-2 text-sm text-gray-700 dark:text-dark-text hover:bg-primary/10 dark:hover:bg-primary/20 cursor-pointer;
-            }
-            .link-hover {
-                @apply text-primary hover:underline transition-colors duration-300;
-            }
-            .feature-card {
-                @apply bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:bg-dark-card dark:border-gray-700 dark:text-dark-text;
-            }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Evernight Vista 官方网站</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png">
+  <link rel="shortcut icon" href="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
-        .dark {
-            background-color: #121212;
-            color: #E0E0E0;
-        }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        html {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
 
-        .hidden {
-            display: none;
+    .dark .glass-card {
+      background: rgba(30, 30, 30, 0.7);
+      border-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .feature-icon-bg {
+      background: linear-gradient(135deg, #39ECEB20, #34D39920);
+    }
+
+    .dark .feature-icon-bg {
+      background: linear-gradient(135deg, #39ECEB30, #34D39930);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #39ECEB, #2BB5B2);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(57, 236, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(57, 236, 235, 0.4);
+    }
+
+    .dark .btn-primary {
+      background: linear-gradient(135deg, #39ECEB, #2BB5B2);
+      box-shadow: 0 4px 14px rgba(57, 236, 235, 0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid #39ECEB;
+      color: #39ECEB;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(57, 236, 235, 0.08);
+      border-color: #39ECEB;
+    }
+
+    .nav-blur {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .dark .nav-blur {
+      background: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-gradient {
+      background: radial-gradient(circle at 30% 30%, rgba(57, 236, 235, 0.08) 0%, transparent 50%);
+    }
+
+    .dark .hero-gradient {
+      background: radial-gradient(circle at 30% 30%, rgba(57, 236, 235, 0.12) 0%, transparent 50%);
+    }
+
+    .section-light {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .dark .section-light {
+      background: linear-gradient(180deg, #121212 0%, #0f0f0f 100%);
+    }
+
+    .footer-gradient {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    .dark .footer-gradient {
+      background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#39ECEB',
+            secondary: '#6B7280',
+            accent: '#34D399',
+            dark: {
+              bg: '#121212',
+              card: '#1E1E1E',
+              text: '#E0E0E0',
+              lightText: '#9E9E9E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
         }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="font-sans text-gray-700 bg-gray-50 dark:bg-dark-bg dark:text-dark-text">
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 dark:bg-dark-card dark:shadow-gray-800">
-        <div class="container mx-auto px-4 md:px-8 lg:px-16">
-            <nav class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#home" class="flex items-center">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/fedora_whitelogo_med.png" alt="Evernight Vista Logo" class="h-10 w-auto" id="logo-img">
-                    </a>
-                </div>
+<body class="font-sans text-gray-700 bg-gray-50 dark:bg-dark-bg dark:text-dark-text antialiased">
+  <header class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-gray-200/60 dark:border-gray-800/60">
+    <div class="container mx-auto px-4 md:px-8 lg:px-16">
+      <nav class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-2">
+          <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/fedora_whitelogo_med.png" alt="Evernight Vista Logo" class="h-9 w-auto" id="logo-img">
+        </a>
 
-                <div class="hidden md:flex items-center space-x-1 relative">
-                    <a href="#home" class="nav-link nav-link-active" id="nav-home">首页</a>
-                    <a href="#download" class="nav-link" id="nav-download">下载</a>
-                    <a href="#support" class="nav-link" id="nav-support">支持</a>
-                    <a href="https://evernightfedora.github.io/evernight-vista-release-notes" class="nav-link" id="nav-release-notes">发行注记</a>
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#home" class="nav-link nav-link-active text-sm font-medium px-4 py-2 rounded-full transition" id="nav-home">首页</a>
+          <a href="#download" class="nav-link text-sm font-medium px-4 py-2 rounded-full transition" id="nav-download">下载</a>
+          <a href="#support" class="nav-link text-sm font-medium px-4 py-2 rounded-full transition" id="nav-support">支持</a>
+          <a href="https://evernightfedora.github.io/evernight-vista-release-notes" class="nav-link text-sm font-medium px-4 py-2 rounded-full transition" id="nav-release-notes">发行注记</a>
 
-                    <div class="relative">
-                        <button id="language-dropdown-toggle" class="nav-link flex items-center gap-2">
-                            <i class="fas fa-globe text-primary"></i>
-                            <span class="hidden sm:inline" id="current-language-text">中文</span>
-                            <i class="fas fa-chevron-down text-xs text-primary"></i>
-                        </button>
-                        <div id="language-dropdown-menu" class="dropdown-menu hidden">
-                            <div class="dropdown-item" data-lang="zh-CN">简体中文</div>
-                            <div class="dropdown-item" data-lang="en-US">English</div>
-                            <div class="dropdown-item" data-lang="ja-JP">日本語</div>
-                        </div>
-                    </div>
-
-                    <button id="theme-toggle" class="nav-link flex items-center gap-2">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:inline-block"></i>
-                        <span class="hidden sm:inline" id="theme-text">主题</span>
-                    </button>
-                </div>
-
-                <div class="md:hidden flex items-center gap-4 relative">
-                    <div class="relative">
-                        <button id="mobile-language-dropdown-toggle" class="text-gray-500 hover:text-primary dark:text-dark-lightText dark:hover:text-primary">
-                            <i class="fas fa-globe text-xl"></i>
-                        </button>
-                        <div id="mobile-language-dropdown-menu" class="dropdown-menu hidden">
-                            <div class="dropdown-item" data-lang="zh-CN">简体中文</div>
-                            <div class="dropdown-item" data-lang="en-US">English</div>
-                            <div class="dropdown-item" data-lang="ja-JP">日本語</div>
-                        </div>
-                    </div>
-
-                    <button id="mobile-theme-toggle" class="text-gray-500 hover:text-primary dark:text-dark-lightText dark:hover:text-primary">
-                        <i class="fas fa-moon dark:hidden text-xl"></i>
-                        <i class="fas fa-sun hidden dark:inline-block text-xl"></i>
-                    </button>
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary dark:text-dark-lightText dark:hover:text-primary">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </nav>
-
-            <div id="mobile-menu" class="md:hidden hidden pb-4 dark:bg-dark-card">
-                <div class="flex flex-col space-y-2 px-4">
-                    <a href="#home" class="nav-link nav-link-active" id="mobile-nav-home">首页</a>
-                    <a href="#download" class="nav-link" id="mobile-nav-download">下载</a>
-                    <a href="#support" class="nav-link" id="mobile-nav-support">支持</a>
-                    <a href="https://evernightfedora.github.io/evernight-vista-release-notes" class="nav-link" id="mobile-nav-release-notes">发行注记</a>
-                </div>
+          <div class="relative ml-2">
+            <button id="language-dropdown-toggle" class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+              <i class="fas fa-globe text-primary"></i>
+              <span id="current-language-text">中文</span>
+              <i class="fas fa-chevron-down text-xs opacity-60"></i>
+            </button>
+            <div id="language-dropdown-menu" class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-white/90 dark:bg-dark-card/90 backdrop-blur-xl rounded-xl shadow-2xl py-2 border border-gray-100 dark:border-gray-700 z-50">
+              <div class="dropdown-item px-4 py-2 text-sm hover:bg-primary/10 cursor-pointer rounded-lg mx-1" data-lang="zh-CN">简体中文</div>
+              <div class="dropdown-item px-4 py-2 text-sm hover:bg-primary/10 cursor-pointer rounded-lg mx-1" data-lang="en-US">English</div>
+              <div class="dropdown-item px-4 py-2 text-sm hover:bg-primary/10 cursor-pointer rounded-lg mx-1" data-lang="ja-JP">日本語</div>
             </div>
+          </div>
+
+          <button id="theme-toggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            <i class="fas fa-moon dark:hidden text-lg"></i>
+            <i class="fas fa-sun hidden dark:inline-block text-lg"></i>
+          </button>
         </div>
-    </header>
 
-    <main class="pt-16">
-        <section id="home" class="bg-gradient-to-br from-primary/5 to-primary/10 section-padding dark:from-primary/10 dark:to-dark-bg">
-            <div class="container mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-1/2">
-                        <h1 class="section-title" id="main-title">Evernight Vista 操作系统</h1>
-                        <p class="text-lg text-gray-600 mb-8 dark:text-dark-lightText" id="main-description">性能最澎湃、软件生态最丰厚、开箱即用的Fedora系发行版</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#download" class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-300" id="download-now-btn">立即下载</a>
-                            <a href="#support" class="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/5 transition-colors duration-300 dark:hover:bg-primary/10" id="get-support-btn">获取支持</a>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/splash.png" alt="Evernight Vista 产品展示" class="rounded-lg shadow-lg w-full h-auto dark:shadow-gray-800" id="product-img">
-                    </div>
-                </div>
-
-                <div class="mt-20">
-                    <h2 class="section-title text-center" id="why-choose-title">为什么选择Evernight Vista 操作系统？</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
-                        <div class="feature-card text-center">
-                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
-                                <i class="fas fa-box-open text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature1-title">开箱即用</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature1-desc">一旦系统安装完成,即是原生中文、开箱即用的状态，已为您配置好了美观的图形桌面环境、国内镜像源，中文输入法, GRUB主题等等，更加符合国人的使用环境。</p>
-                        </div>
-                        <div class="feature-card text-center">
-                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
-                                <i class="fas fa-bolt text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature2-title">强劲性能</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature2-desc">Evernight Vista 操作系统使用基于CachyOS内核，拥有非凡性能。</p>
-                        </div>
-                        <div class="feature-card text-center">
-                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
-                                <i class="fas fa-download text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature3-title">安装简单</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature3-desc">经典Anaconda图形化安装，只需回答几个问题，就可以完成安装。</p>
-                        </div>
-                        <div class="feature-card text-center">
-                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
-                                <i class="fas fa-shield-halved text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature4-title">强大安全</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature4-desc">Evernight Vista支持安全启动和开箱即用的SELinux。</p>
-                        </div>
-                        <div class="feature-card text-center">
-                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-primary/20">
-                                <i class="fas fa-cubes text-primary text-2xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-lg mb-2 dark:text-white" id="feature5-title">生态丰富</h3>
-                            <p class="text-gray-600 text-sm dark:text-dark-lightText" id="feature5-desc">兼容Fedora软件源，支持如意玲珑、星火应用商店。轻松安装相关软件！</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="md:hidden flex items-center gap-3">
+          <div class="relative">
+            <button id="mobile-language-dropdown-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+              <i class="fas fa-globe text-xl"></i>
+            </button>
+            <div id="mobile-language-dropdown-menu" class="dropdown-menu hidden absolute right-0 mt-2 w-36 bg-white/90 dark:bg-dark-card/90 backdrop-blur-xl rounded-xl shadow-2xl py-2 border border-gray-100 dark:border-gray-700 z-50">
+              <div class="dropdown-item px-4 py-2 text-sm" data-lang="zh-CN">简体中文</div>
+              <div class="dropdown-item px-4 py-2 text-sm" data-lang="en-US">English</div>
+              <div class="dropdown-item px-4 py-2 text-sm" data-lang="ja-JP">日本語</div>
             </div>
-        </section>
-
-        <section id="download" class="bg-white section-padding dark:bg-dark-bg">
-            <div class="container mx-auto">
-                <h2 class="section-title text-center" id="download-center-title">下载中心</h2>
-                <div class="text-center mt-10">
-                    <a href="https://sourceforge.net/projects/evernight-vista/files/latest/download" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-md hover:bg-primary/90 transition-colors duration-300 text-lg" id="go-to-download-btn">点击前往下载页面</a>
-                    <p class="text-gray-500 mt-4 dark:text-dark-lightText" id="honor-edition-note">最新版本：44（2026.5.1）</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="support" class="bg-gray-50 section-padding dark:bg-dark-bg">
-            <div class="container mx-auto">
-                <h2 class="section-title text-center" id="tech-support-title">技术支持</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto dark:text-dark-lightText" id="support-description">我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。</p>
-                <div class="max-w-2xl mx-auto mb-12">
-                    <div class="bg-white rounded-lg shadow-sm p-6 dark:bg-dark-card dark:shadow-gray-800">
-                        <h3 class="text-xl font-semibold mb-4 flex items-center dark:text-white" id="contact-us-title">联系我们</h3>
-                        <div class="space-y-6">
-                            <!-- 已删除 B站支持，仅保留邮箱支持 -->
-                            <div class="flex items-start">
-                                <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 dark:bg-primary/20">
-                                    <i class="fas fa-phone text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium mb-1 dark:text-white" id="email-support-title">邮箱支持</h4>
-                                    <a href="mailto:13278297951@sina.cn" class="link-hover">13278297951@sina.cn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-12 dark:bg-dark-card">
-        <div class="container mx-auto px-4 md:px-8 lg:px-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mb-8">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold mb-4 text-white" id="community-title">社区</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" target="_blank" class="flex items-center hover:text-white transition-colors" id="qq-group-text">QQ群(758777563)</a></li>
-                        <!-- 已删除 B站、小红书链接 -->
-                    </ul>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold mb-4 text-white" id="more-title">更多</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>
-                            <a href="https://github.com/EvernightFedora/evernight-vista" target="_blank" class="flex items-center hover:text-white transition-colors">
-                                GitHub <i class="fas fa-external-link-alt text-xs ml-1 text-primary"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 pt-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center">
-                        <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" alt="Evernight Vista Logo" class="h-8 w-auto mr-2" id="footer-logo-img">
-                        <span class="text-lg font-semibold">Evernight Vista</span>
-                    </div>
-                    <p class="text-gray-400 text-sm text-center md:text-left" id="copyright-text">© 2026 怪力熊玩Fedora 保留所有权利。基于Fedora。独立项目，与Fedora、Red Hat无关</p>
-                </div>
-            </div>
+          </div>
+          <button id="mobile-theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fas fa-moon dark:hidden text-xl"></i>
+            <i class="fas fa-sun hidden dark:inline-block text-xl"></i>
+          </button>
+          <button id="mobile-menu-button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
-    </footer>
+      </nav>
+      <div id="mobile-menu" class="md:hidden hidden pb-4 pt-2 space-y-1">
+        <a href="#home" class="block px-4 py-2 rounded-lg nav-link-active" id="mobile-nav-home">首页</a>
+        <a href="#download" class="block px-4 py-2 rounded-lg" id="mobile-nav-download">下载</a>
+        <a href="#support" class="block px-4 py-2 rounded-lg" id="mobile-nav-support">支持</a>
+        <a href="https://evernightfedora.github.io/evernight-vista-release-notes" class="block px-4 py-2 rounded-lg" id="mobile-nav-release-notes">发行注记</a>
+      </div>
+    </div>
+  </header>
 
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-primary/90 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+  <main class="pt-16">
+    <section id="home" class="relative hero-gradient section-padding">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          <div class="md:w-1/2 space-y-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white" id="main-title">Evernight Vista</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-lg" id="main-description">开箱即用的 Fedora 系发行版</p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#download" class="btn-primary text-white px-8 py-3.5 rounded-full font-semibold shadow-xl inline-flex items-center gap-2" id="download-now-btn">立即下载 <i class="fas fa-arrow-down"></i></a>
+              <a href="#support" class="btn-outline px-8 py-3.5 rounded-full font-semibold inline-flex items-center gap-2" id="get-support-btn">获取支持 <i class="fas fa-comment"></i></a>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/splash.png" alt="Evernight Vista 产品展示" class="rounded-3xl shadow-2xl w-full h-auto" id="product-img">
+          </div>
+        </div>
 
-    <script>
-        const translations = {
-            'zh-CN': {
-                'page-title': 'Evernight Vista 官方网站',
-                'nav-home': '首页',
-                'nav-download': '下载',
-                'nav-support': '支持',
-                'nav-release-notes': '发行注记',
-                'mobile-nav-home': '首页',
-                'mobile-nav-download': '下载',
-                'mobile-nav-support': '支持',
-                'mobile-nav-release-notes': '发行注记',
-                'current-language-text': '中文',
-                'theme-text': '主题',
-                'main-title': 'Evernight Vista 操作系统',
-                'main-description': '性能最澎湃、软件生态最丰厚、开箱即用的Fedora系发行版',
-                'download-now-btn': '立即下载',
-                'get-support-btn': '获取支持',
-                'why-choose-title': '为什么选择Evernight Vista 操作系统？',
-                'feature1-title': '开箱即用',
-                'feature1-desc': '一旦系统安装完成,即是原生中文、开箱即用的状态，已为您配置好了美观的图形桌面环境、国内镜像源，中文输入法, GRUB主题等等，更加符合国人的使用环境。',
-                'feature2-title': '强劲性能',
-                'feature2-desc': 'Evernight Vista 操作系统使用基于CachyOS内核，拥有非凡性能。',
-                'feature3-title': '安装简单',
-                'feature3-desc': '经典Anaconda图形化安装，只需回答几个问题，就可以完成安装。',
-                'feature4-title': '强大安全',
-                'feature4-desc': 'Evernight Vista支持安全启动和开箱即用的SELinux。',
-                'feature5-title': '生态丰富',
-                'feature5-desc': '兼容Fedora软件源，支持如意玲珑、星火应用商店。微信、qq等国产软件轻松安装。',
-                'download-center-title': '下载中心',
-                'go-to-download-btn': '点击前往下载页面',
-                'honor-edition-note': '最新版本：44（2026.5.1）',
-                'tech-support-title': '技术支持',
-                'support-description': '我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。',
-                'contact-us-title': '联系我们',
-                'email-support-title': '邮箱支持',
-                'community-title': '社区',
-                'qq-group-text': 'QQ群(758777563)',
-                'more-title': '更多',
-                'copyright-text': '© 2026 怪力熊玩Fedora 保留所有权利。基于Fedora。独立项目，与Fedora、Red Hat无关',
-                'logo-img-alt': 'Evernight Vista Logo',
-                'product-img-alt': 'Evernight Vista 产品展示',
-                'footer-logo-img-alt': 'Evernight Vista Logo'
-            },
-            'en-US': {
-                'page-title': 'Evernight Vista Official Website',
-                'nav-home': 'Home',
-                'nav-download': 'Download',
-                'nav-support': 'Support',
-                'nav-release-notes': 'Release Notes',
-                'mobile-nav-home': 'Home',
-                'mobile-nav-download': 'Download',
-                'mobile-nav-support': 'Support',
-                'mobile-nav-release-notes': 'Release Notes',
-                'current-language-text': 'English',
-                'theme-text': 'Theme',
-                'main-title': 'Evernight Vista Operating System',
-                'main-description': 'The Fedora-based distribution with the most powerful performance, the richest software ecosystem, and ready to use out of the box.',
-                'download-now-btn': 'Download Now',
-                'get-support-btn': 'Get Support',
-                'why-choose-title': 'Why Choose Evernight Vista?',
-                'feature1-title': 'Out of the Box',
-                'feature1-desc': 'Once installed, the system is ready to use immediately. It comes with a beautiful graphical desktop environment, mirror sources, Chinese Japanese and Korean input method, GRUB theme, and more, making it more suitable for everyone users.',
-                'feature2-title': 'Powerful Performance',
-                'feature2-desc': 'Evernight Vista OS uses the CachyOS-based kernel for exceptional performance.',
-                'feature3-title': 'Easy Installation',
-                'feature3-desc': 'Classic Anaconda graphical installation - just answer a few questions to complete the installation.',
-                'feature4-title': 'Enhanced Security',
-                'feature4-desc': 'Evernight Vista supports Secure Boot and out-of-the-box SELinux.',
-                'feature5-title': 'Rich Ecosystem',
-                'feature5-desc': 'Compatible with Fedora software repositories and supports applications like Linyaps and Spark App Store. Chinese software such as WeChat and QQ can be easily installed.',
-                'download-center-title': 'Download Center',
-                'go-to-download-btn': 'Go to Download Page',
-                'honor-edition-note': 'Latest Version:44(2026.5.1)',
-                'tech-support-title': 'Technical Support',
-                'support-description': 'We provide multiple support channels to answer your questions anytime during usage.',
-                'contact-us-title': 'Contact Us',
-                'email-support-title': 'Email Support',
-                'community-title': 'Community',
-                'qq-group-text': 'QQ Group (758777563)',
-                'more-title': 'More',
-                'copyright-text': '© 2026 KairikiFedora. All rights reserved. Independent project, not affiliated with Fedora, Red Hat.',
-                'logo-img-alt': 'Evernight Vista Logo',
-                'product-img-alt': 'Evernight Vista Product Display',
-                'footer-logo-img-alt': 'Evernight Vista Logo'
-            },
-            'ja-JP': {
-                'page-title': 'Evernight Vista 公式ウェブサイト',
-                'nav-home': 'ホーム',
-                'nav-download': 'ダウンロード',
-                'nav-support': 'サポート',
-                'nav-release-notes': 'リリースノート',
-                'mobile-nav-home': 'ホーム',
-                'mobile-nav-download': 'ダウンロード',
-                'mobile-nav-support': 'サポート',
-                'mobile-nav-release-notes': 'リリースノート',
-                'current-language-text': '日本語',
-                'theme-text': 'テーマ',
-                'main-title': 'Evernight Vista オペレーティングシステム',
-                'main-description': '最もパフォーマンスが急上昇し、ソフトウェアエコシステムが最も充実し、箱からでも使えるFedoraシリーズのディストリビューション',
-                'download-now-btn': '今すぐダウンロード',
-                'get-support-btn': 'サポートを受ける',
-                'why-choose-title': 'Evernight Vistaを選ぶ理由',
-                'feature1-title': 'すぐに使える',
-                'feature1-desc': 'インストールが完了すると、システムはすぐに使用可能です。美しいグラフィカルデスクトップ環境、ミラーソース、中国語・日本語・韓国語の入力方法、GRUBテーマなどが付属しており、すべてのユーザーにより適しています。',
-                'feature2-title': '高性能',
-                'feature2-desc': 'Evernight Vista OSはCachyOSカーネルをベースにしており、優れたパフォーマンスを発揮します。',
-                'feature3-title': 'インストールが簡単',
-                'feature3-desc': 'クラシックなAnacondaグラフィカルインストーラーを採用し、数つの質問に答えるだけでインストールが完了します。',
-                'feature4-title': '高度なセキュリティ',
-                'feature4-desc': 'Evernight VistaはセキュアブートとSELinuxをサポートしており、デフォルトで有効になっています。',
-                'feature5-title': '豊富なエコシステム',
-                'feature5-desc': 'Fedoraのソフトウェアリポジトリと互換性があり、LinyapsやSpark App Storeなどのアプリケーションをサポートしています。WeChatやQQなどの中国のソフトウェアも簡単にインストールできます。',
-                'download-center-title': 'ダウンロードセンター',
-                'go-to-download-btn': 'ダウンロードページへ',
-                'honor-edition-note': '最新リリース:44(2026.5.1)',
-                'tech-support-title': 'テクニカルサポート',
-                'support-description': '複数のサポートチャネルを提供し、使用中の問題にいつでも回答します。',
-                'contact-us-title': 'お問い合わせ',
-                'email-support-title': 'メールサポート',
-                'community-title': 'コミュニティ',
-                'qq-group-text': 'QQグループ (758777563)',
-                'more-title': 'その他',
-                'copyright-text': '© 2026 KairikiFedora. 全著作権所有。Fedora、Red Hatとは無関係の独立したプロジェクトです',
-                'logo-img-alt': 'Evernight Vistaロゴ',
-                'product-img-alt': 'Evernight Vista製品ディスプレイ',
-                'footer-logo-img-alt': 'Evernight Vistaロゴ'
-            }
-        };
+        <div class="mt-32">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-gift text-primary text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-3 dark:text-white" id="feature1-title">开箱即用</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400" id="feature1-desc">完成安装并在开箱体验回答几个问题即可进入配置完整的桌面环境，中日韩输入、常用组件和软件源不必再折腾！</p>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-microchip text-primary text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-3 dark:text-white" id="feature2-title">支持更广</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400" id="feature2-desc">Evernight Vista 操作系统使用基于CachyOS内核，拥有强劲性能，支持先进的硬件和外设。</p>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-cloud-download-alt text-primary text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-3 dark:text-white" id="feature3-title">安装简单</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400" id="feature3-desc">经典Anaconda图形化安装，只需回答几个问题，就可以完成安装。</p>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-rocket text-primary text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-3 dark:text-white" id="feature4-title">上手更快</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400" id="feature4-desc">首次进入桌面即刻拥有Windows的操作习惯，桌面只有一个回收站。同时还保留Fedora Linux的开放性，新手几小时就能学会上手。</p>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-layer-group text-primary text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-3 dark:text-white" id="feature5-title">生态丰富</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400" id="feature5-desc">包含Fedora软件仓库、RPM Fusion软件仓库和Terra软件仓库，并且还可通过如意玲珑轻松安装微信、qq等国产软件。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function getSystemLanguage() {
-            const systemLang = navigator.language || navigator.userLanguage;
-            const langMap = {
-                'zh': 'zh-CN',
-                'zh-CN': 'zh-CN',
-                'zh-TW': 'zh-CN',
-                'zh-HK': 'zh-CN',
-                'en': 'en-US',
-                'en-US': 'en-US',
-                'en-GB': 'en-US',
-                'en-CA': 'en-US',
-                'ja': 'ja-JP',
-                'ja-JP': 'ja-JP'
-            };
-            return langMap[systemLang] || langMap[systemLang.split('-')[0]] || 'zh-CN';
+    <section id="download" class="section-light py-24">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white" id="download-center-title">下载中心</h2>
+        <p class="text-gray-500 dark:text-gray-400 mb-12" id="honor-edition-note"></p>
+        <a href="https://sourceforge.net/projects/evernight-vista/files/latest/download" target="_blank" class="btn-primary inline-flex items-center gap-3 text-white px-10 py-4 rounded-full text-lg font-semibold" id="go-to-download-btn">
+          点击前往下载页面 <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="support" class="py-24 bg-gray-50 dark:bg-dark-bg">
+      <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white" id="tech-support-title">技术支持</h2>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-16 max-w-xl mx-auto" id="support-description">我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。</p>
+        <div class="max-w-2xl mx-auto">
+          <div class="glass-card rounded-3xl p-8 md:p-10 shadow-xl">
+            <h3 class="text-2xl font-semibold mb-8 flex items-center gap-3 dark:text-white" id="contact-us-title"><i class="fas fa-headset text-primary"></i> 联系我们</h3>
+            <div class="space-y-6">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-xl"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <h4 class="font-medium dark:text-white" id="email-support-title">邮箱支持</h4>
+                  <a href="mailto:13278297951@sina.cn" class="text-primary hover:underline">13278297951@sina.cn</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section-light py-24">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white" id="cta-heading">开箱即用的Fedora系发行版</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto" id="cta-subtext">更简单易用，更容易上手</p>
+        <a href="https://sourceforge.net/projects/evernight-vista/files/latest/download" target="_blank" class="btn-primary inline-flex items-center gap-3 text-white px-10 py-4 rounded-full text-lg font-semibold" id="cta-download-btn">
+          立即下载 <i class="fas fa-download"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-gradient text-white pt-20 pb-10">
+    <div class="container mx-auto px-4 md:px-8 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-6 text-white/90" id="community-title">社区</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=xxx" target="_blank" class="hover:text-primary transition flex items-center gap-2" id="qq-group-text"><i class="fab fa-qq"></i> QQ群(942117790)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-6 text-white/90" id="more-title">更多</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><a href="https://github.com/EvernightFedora/evernight-vista" target="_blank" class="hover:text-primary transition flex items-center gap-2"><i class="fab fa-github"></i> GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <img src="https://gh-proxy.org/https://github.com/EvernightFedora/evernight-vista/blob/main/system-logo-white.png" alt="Logo" class="h-7 w-auto" id="footer-logo-img">
+          <span class="font-semibold text-lg">Evernight Vista</span>
+        </div>
+        <p class="text-sm text-gray-400" id="copyright-text">© 2006-2026 怪力熊玩Fedora 保留所有权利</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-8 right-8 btn-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl opacity-0 invisible transition-all duration-300 hover:scale-110">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const translations = {
+      'zh-CN': {
+        'page-title': 'Evernight Vista 官方网站',
+        'nav-home': '首页', 'nav-download': '下载', 'nav-support': '支持', 'nav-release-notes': '发行注记',
+        'mobile-nav-home': '首页', 'mobile-nav-download': '下载', 'mobile-nav-support': '支持', 'mobile-nav-release-notes': '发行注记',
+        'current-language-text': '中文', 'theme-text': '主题',
+        'main-title': 'Evernight Vista',
+        'main-description': '开箱即用的 Fedora 系发行版',
+        'download-now-btn': '立即下载', 'get-support-btn': '获取支持',
+        'feature1-title': '开箱即用', 'feature1-desc': '完成安装并在开箱体验回答几个问题即可进入配置完整的桌面环境，中日韩输入、常用组件和软件源不必再折腾！',
+        'feature2-title': '支持更广', 'feature2-desc': 'Evernight Vista 操作系统使用基于CachyOS内核，拥有强劲性能，支持先进的硬件和外设。',
+        'feature3-title': '安装简单', 'feature3-desc': '经典Anaconda图形化安装，只需回答几个问题，就可以完成安装。',
+        'feature4-title': '上手更快', 'feature4-desc': '首次进入桌面即刻拥有Windows的操作习惯，桌面只有一个回收站。同时还保留Fedora Linux的开放性，新手几小时就能学会上手。',
+        'feature5-title': '生态丰富', 'feature5-desc': '包含Fedora软件仓库、RPM Fusion软件仓库和Terra软件仓库，并且还可通过如意玲珑轻松安装微信、qq等国产软件。',
+        'download-center-title': '下载中心', 'go-to-download-btn': '点击前往下载页面',
+        'tech-support-title': '技术支持', 'support-description': '我们提供多种支持渠道，随时为您解答使用过程中遇到的问题。',
+        'contact-us-title': '联系我们', 'email-support-title': '邮箱支持',
+        'cta-heading': '开箱即用的Fedora系发行版',
+        'cta-subtext': '更简单易用，更容易上手',
+        'cta-download-btn': '立即下载',
+        'community-title': '社区', 'qq-group-text': 'QQ群(942117790)', 'more-title': '更多',
+        'copyright-text': '© 2006-2026 怪力熊玩Fedora 保留所有权利',
+        'logo-img-alt': 'Evernight Vista Logo', 'product-img-alt': 'Evernight Vista 产品展示', 'footer-logo-img-alt': 'Evernight Vista Logo'
+      },
+      'en-US': {
+        'page-title': 'Evernight Vista Official Website',
+        'nav-home': 'Home', 'nav-download': 'Download', 'nav-support': 'Support', 'nav-release-notes': 'Release Notes',
+        'mobile-nav-home': 'Home', 'mobile-nav-download': 'Download', 'mobile-nav-support': 'Support', 'mobile-nav-release-notes': 'Release Notes',
+        'current-language-text': 'English', 'theme-text': 'Theme',
+        'main-title': 'Evernight Vista',
+        'main-description': 'A ready‑to‑use Fedora‑based distribution',
+        'download-now-btn': 'Download Now', 'get-support-btn': 'Get Support',
+        'feature1-title': 'Out of the Box', 'feature1-desc': 'Answer a few questions during setup and land on a fully configured desktop with CJK input, essential apps and repositories.',
+        'feature2-title': 'Wider Hardware Support', 'feature2-desc': 'Powered by a CachyOS‑based kernel for strong performance and compatibility with modern hardware and peripherals.',
+        'feature3-title': 'Easy Install', 'feature3-desc': 'Classic Anaconda graphical installer – just answer a few questions.',
+        'feature4-title': 'Quick to Learn', 'feature4-desc': 'A familiar Windows‑like workflow with only a Recycle Bin on the desktop, while keeping Fedora’s openness. Beginners can get comfortable within hours.',
+        'feature5-title': 'Rich Ecosystem', 'feature5-desc': 'Fedora, RPM Fusion and Terra repositories included. Easily install WeChat, QQ and more via Linyaps.',
+        'download-center-title': 'Download Center', 'go-to-download-btn': 'Go to Download Page',
+        'tech-support-title': 'Technical Support', 'support-description': 'Multiple channels to assist you anytime.',
+        'contact-us-title': 'Contact Us', 'email-support-title': 'Email Support',
+        'cta-heading': 'Out‑of‑the‑box Fedora distribution',
+        'cta-subtext': 'Simpler, easier, and more beginner‑friendly',
+        'cta-download-btn': 'Download Now',
+        'community-title': 'Community', 'qq-group-text': 'QQ Group (942117790)', 'more-title': 'More',
+        'copyright-text': '© 2006-2026 KairikiFedora. All rights reserved.',
+        'logo-img-alt': 'Evernight Vista Logo', 'product-img-alt': 'Evernight Vista Product', 'footer-logo-img-alt': 'Logo'
+      },
+      'ja-JP': {
+        'page-title': 'Evernight Vista 公式サイト',
+        'nav-home': 'ホーム', 'nav-download': 'ダウンロード', 'nav-support': 'サポート', 'nav-release-notes': 'リリースノート',
+        'mobile-nav-home': 'ホーム', 'mobile-nav-download': 'ダウンロード', 'mobile-nav-support': 'サポート', 'mobile-nav-release-notes': 'リリースノート',
+        'current-language-text': '日本語', 'theme-text': 'テーマ',
+        'main-title': 'Evernight Vista',
+        'main-description': 'すぐに使えるFedoraベースのディストリビューション',
+        'download-now-btn': 'ダウンロード', 'get-support-btn': 'サポート',
+        'feature1-title': 'すぐ使える', 'feature1-desc': 'セットアップ時の簡単な質問に答えるだけで、CJK入力や必要なリポジトリが整ったデスクトップが使えます。',
+        'feature2-title': '幅広いハードウェア対応', 'feature2-desc': 'CachyOSベースのカーネルにより高い性能と最新ハードウェア・周辺機器のサポートを実現。',
+        'feature3-title': '簡単インストール', 'feature3-desc': '従来のAnacondaグラフィカルインストーラー。',
+        'feature4-title': 'すぐに慣れる', 'feature4-desc': 'デスクトップにはゴミ箱だけ。Windows風の操作感でFedoraの開放性もそのまま。初心者でも数時間で習得できます。',
+        'feature5-title': '豊富なエコシステム', 'feature5-desc': 'Fedora、RPM Fusion、Terraリポジトリを標準搭載。LinyapsでWeChatやQQなども簡単導入。',
+        'download-center-title': 'ダウンロード', 'go-to-download-btn': 'ページへ',
+        'tech-support-title': 'サポート', 'support-description': '問題解決を支援',
+        'contact-us-title': '連絡先', 'email-support-title': 'メール',
+        'cta-heading': 'すぐに使えるFedora系ディストリビューション',
+        'cta-subtext': 'よりシンプルで、簡単に使い始められる',
+        'cta-download-btn': 'ダウンロード',
+        'community-title': 'コミュニティ', 'qq-group-text': 'QQグループ (942117790)', 'more-title': 'その他',
+        'copyright-text': '© 2006-2026 KairikiFedora. All Rights Reserved.',
+        'logo-img-alt': 'ロゴ', 'product-img-alt': '製品画像', 'footer-logo-img-alt': 'ロゴ'
+      }
+    };
+
+    function getSystemLanguage() {
+      const lang = navigator.language || navigator.userLanguage;
+      const map = { 'zh':'zh-CN','zh-CN':'zh-CN','en':'en-US','en-US':'en-US','ja':'ja-JP','ja-JP':'ja-JP' };
+      return map[lang] || map[lang.split('-')[0]] || 'zh-CN';
+    }
+
+    let currentLang = localStorage.getItem('language') || getSystemLanguage() || 'zh-CN';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = translations[lang]['page-title'];
+      Object.keys(translations[lang]).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) {
+          if (key.endsWith('-alt')) {
+            const img = document.getElementById(key.replace('-alt',''));
+            if (img) img.alt = translations[lang][key];
+          } else if (el.innerHTML.includes('<i>')) {
+            const icon = el.innerHTML.match(/<i[^>]*><\/i>/g)?.join('') || '';
+            el.innerHTML = `${translations[lang][key]} ${icon}`;
+          } else el.textContent = translations[lang][key];
         }
+      });
 
-        let currentLang = localStorage.getItem('language') || getSystemLanguage() || 'zh-CN';
+      // ----- 动态生成带星期几的版本信息 -----
+      const honorEl = document.getElementById('honor-edition-note');
+      if (honorEl) {
+        const date = new Date(2026, 6, 29); // 月份0-11，6代表7月
+        const weekdayIndex = date.getDay(); // 0=周日
+        const year = 2026, month = 7, day = 29;
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            document.title = translations[lang]['page-title'];
-
-            Object.keys(translations[lang]).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    if (key.endsWith('-alt')) {
-                        const imgId = key.replace('-alt', '');
-                        const imgElement = document.getElementById(imgId);
-                        if (imgElement) imgElement.alt = translations[lang][key];
-                    } else if (element.innerHTML.includes('<i>')) {
-                        const iconHTML = element.innerHTML.match(/<i[^>]*>.*?<\/i>/g)?.join('') || '';
-                        element.innerHTML = `${translations[lang][key]} ${iconHTML}`;
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-
-            if (arguments.length > 0) {
-                localStorage.setItem('language', lang);
-            }
-            document.getElementById('language-dropdown-menu').classList.add('hidden');
-            document.getElementById('mobile-language-dropdown-menu').classList.add('hidden');
+        if (lang === 'zh-CN') {
+          const weekdays = ['日','一','二','三','四','五','六'];
+          honorEl.textContent = `最新版本：44.0.1（${year}年${month}月${day}日 周${weekdays[weekdayIndex]}）`;
+        } else if (lang === 'en-US') {
+          const weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+          const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          const monthName = monthNames[month-1];
+          honorEl.textContent = `Latest Version: 44.0.1 (${monthName} ${day}, ${year} ${weekdays[weekdayIndex]})`;
+        } else if (lang === 'ja-JP') {
+          const weekdays = ['日','月','火','水','木','金','土'];
+          honorEl.textContent = `最新: 44.0.1 (${year}年${month}月${day}日 ${weekdays[weekdayIndex]}曜日)`;
         }
+      }
 
-        const languageDropdownToggle = document.getElementById('language-dropdown-toggle');
-        const languageDropdownMenu = document.getElementById('language-dropdown-menu');
-        const mobileLanguageDropdownToggle = document.getElementById('mobile-language-dropdown-toggle');
-        const mobileLanguageDropdownMenu = document.getElementById('mobile-language-dropdown-menu');
+      localStorage.setItem('language', lang);
+      document.getElementById('language-dropdown-menu').classList.add('hidden');
+      document.getElementById('mobile-language-dropdown-menu').classList.add('hidden');
+    }
 
-        languageDropdownToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            languageDropdownMenu.classList.toggle('hidden');
-        });
-        mobileLanguageDropdownToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileLanguageDropdownMenu.classList.toggle('hidden');
-        });
+    document.getElementById('language-dropdown-toggle').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('language-dropdown-menu').classList.toggle('hidden');
+    });
+    document.getElementById('mobile-language-dropdown-toggle').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('mobile-language-dropdown-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => setLanguage(item.dataset.lang));
+    });
+    document.addEventListener('click', () => {
+      document.getElementById('language-dropdown-menu').classList.add('hidden');
+      document.getElementById('mobile-language-dropdown-menu').classList.add('hidden');
+    });
 
-        document.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const lang = item.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
+    setLanguage(currentLang);
 
-        document.addEventListener('click', () => {
-            languageDropdownMenu.classList.add('hidden');
-            mobileLanguageDropdownMenu.classList.add('hidden');
-        });
+    const html = document.documentElement;
+    const applyTheme = (t) => {
+      html.classList.toggle('dark', t === 'dark');
+      localStorage.setItem('theme', t);
+    };
+    const stored = localStorage.getItem('theme');
+    if (stored) applyTheme(stored);
+    else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+    const toggleTheme = () => applyTheme(html.classList.contains('dark') ? 'light' : 'dark');
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
 
-        setLanguage(currentLang);
+    const mobileMenuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const htmlElement = document.documentElement;
-        const storedTheme = localStorage.getItem('theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileMenu.classList.add('hidden');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+      });
+    });
 
-        const applyTheme = (theme) => {
-            if (theme === 'dark') {
-                htmlElement.classList.add('dark');
-            } else {
-                htmlElement.classList.remove('dark');
-            }
-            localStorage.setItem('theme', theme);
-        };
-
-        if (storedTheme) {
-            applyTheme(storedTheme);
-        } else {
-            applyTheme(systemTheme);
-        }
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                applyTheme(e.matches ? 'dark' : 'light');
-            }
-        });
-
-        const toggleTheme = () => {
-            const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
-            applyTheme(currentTheme);
-        };
-
-        themeToggle?.addEventListener('click', toggleTheme);
-        mobileThemeToggle?.addEventListener('click', toggleTheme);
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        const sections = document.querySelectorAll('section');
-        const navLinks = {
-            home: document.getElementById('nav-home'),
-            download: document.getElementById('nav-download'),
-            support: document.getElementById('nav-support'),
-            mobileHome: document.getElementById('mobile-nav-home'),
-            mobileDownload: document.getElementById('mobile-nav-download'),
-            mobileSupport: document.getElementById('mobile-nav-support')
-        };
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                mobileMenu.classList.add('hidden');
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    Object.values(navLinks).forEach(link => { if (link) link.classList.remove('nav-link-active'); });
-                    if (navLinks[sectionId]) navLinks[sectionId].classList.add('nav-link-active');
-                    if (navLinks[`mobile${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`]) {
-                        navLinks[`mobile${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`].classList.add('nav-link-active');
-                    }
-                }
-            });
-
-            const backToTopButton = document.getElementById('back-to-top');
-            if (scrollPosition > 500) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.add('opacity-0', 'invisible');
-                backToTopButton.classList.remove('opacity-100', 'visible');
-            }
-        });
-
-        document.getElementById('back-to-top').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        window.dispatchEvent(new Event('scroll'));
-    </script>
+    const backBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backBtn.classList.toggle('opacity-0', window.scrollY <= 500);
+      backBtn.classList.toggle('invisible', window.scrollY <= 500);
+      backBtn.classList.toggle('opacity-100', window.scrollY > 500);
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
